@@ -1,0 +1,1055 @@
+################################################################################
+#
+# Home Assistant MODBUS configuration for Eastron SDM630-Modbus V2 kWh meter:
+# https://www.eastroneurope.com/products/view/sdm630modbus
+#
+# These settings are for an Industrial RS232/RS485 to Ethernet Converter:
+# https://www.waveshare.com/rs232-485-to-eth.htm
+#
+# Other converters might use rtuovertcp, so please change 'type' accordingly.
+#
+# The first five sensors are the most important ones to me and have a
+# scan_interval of 15 seconds. The others sensors are set to 60 seconds.
+#
+# Lowering the scan_interval too much or omitting at all might cause the
+# modbus integration (as of 2023-02-03) to slow down the bootstrap process
+# of Home Assistant too much and generate errors.
+#
+# To add a second slave, copy all sensors and rename each sensor the name
+# and the slave number.
+#
+################################################################################
+
+modbus:
+
+  - name: Waveshare Converter
+    type: tcp | rtuovertcp
+    host: !secret modbus_ip1
+    port: !secret modbus_port1
+    delay: 1
+    retry_on_empty: true
+    message_wait_milliseconds: 200
+    sensors:
+
+        ########################################
+        # DEFINITIONS FOR SLAVE 1
+
+        - name: SDM630 Total system power
+          scan_interval: 15
+          slave: 1
+          address: 52
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: W
+          device_class: power
+          state_class: measurement
+
+        - name: SDM630 Total import kWh
+          scan_interval: 15
+          slave: 1
+          address: 72
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Total export kWh
+          scan_interval: 15
+          slave: 1
+          address: 74
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Total system power demand
+          scan_interval: 15
+          slave: 1
+          address: 84
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: W
+          device_class: power
+          state_class: measurement
+
+        - name: SDM630 Total kWh
+          scan_interval: 15
+          slave: 1
+          address: 342
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Phase 1 line to neutral volts
+          scan_interval: 60
+          slave: 1
+          address: 0
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Phase 2 line to neutral volts
+          scan_interval: 60
+          slave: 1
+          address: 2
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Phase 3 line to neutral volts
+          scan_interval: 60
+          slave: 1
+          address: 4
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Phase 1 current
+          scan_interval: 60
+          slave: 1
+          address: 6
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 2 current
+          scan_interval: 60
+          slave: 1
+          address: 8
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 3 current
+          scan_interval: 60
+          slave: 1
+          address: 10
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 1 power
+          scan_interval: 60
+          slave: 1
+          address: 12
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: W
+          device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 2 power
+          scan_interval: 60
+          slave: 1
+          address: 14
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: W
+          device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 3 power
+          scan_interval: 60
+          slave: 1
+          address: 16
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: W
+          device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 1 volt amps
+          scan_interval: 60
+          slave: 1
+          address: 18
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 2 volt amps
+          scan_interval: 60
+          slave: 1
+          address: 20
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 3 volt amps
+          scan_interval: 60
+          slave: 1
+          address: 22
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 1 reactive power
+          scan_interval: 60
+          slave: 1
+          address: 24
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VAr
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 2 reactive power
+          scan_interval: 60
+          slave: 1
+          address: 26
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VAr
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 3 reactive power
+          scan_interval: 60
+          slave: 1
+          address: 28
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VAr
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Phase 1 power factor
+          scan_interval: 60
+          slave: 1
+          address: 30
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          # unit_of_measurement: None
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Phase 2 power factor
+          scan_interval: 60
+          slave: 1
+          address: 32
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          # unit_of_measurement: None
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Phase 3 power factor
+          scan_interval: 60
+          slave: 1
+          address: 34
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          # unit_of_measurement: None
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Phase 1 phase angle
+          scan_interval: 60
+          slave: 1
+          address: 36
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: deg
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Phase 2 phase angle
+          scan_interval: 60
+          slave: 1
+          address: 38
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: deg
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Phase 3 phase angle
+          scan_interval: 60
+          slave: 1
+          address: 40
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: deg
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Average line to neutral volts
+          scan_interval: 60
+          slave: 1
+          address: 42
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Average line current
+          scan_interval: 60
+          slave: 1
+          address: 46
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Sum of line currents
+          scan_interval: 60
+          slave: 1
+          address: 48
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Total system volt amps
+          scan_interval: 60
+          slave: 1
+          address: 56
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Total system VAr
+          scan_interval: 60
+          slave: 1
+          address: 60
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VAr
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Total system power factor
+          scan_interval: 60
+          slave: 1
+          address: 62
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          # unit_of_measurement: None
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Total system phase angle
+          scan_interval: 60
+          slave: 1
+          address: 66
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: deg
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Frequency of supply voltages
+          scan_interval: 60
+          slave: 1
+          address: 70
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: Hz
+          # device_class: frequency
+          state_class: measurement
+
+        - name: SDM630 Total import kVArh
+          scan_interval: 60
+          slave: 1
+          address: 76
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Total export kVArh
+          scan_interval: 60
+          slave: 1
+          address: 78
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Total VAh
+          scan_interval: 60
+          slave: 1
+          address: 80
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVAh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 Ah
+          scan_interval: 60
+          slave: 1
+          address: 82
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: Ah
+          # device_class: none
+          state_class: measurement
+
+        - name: SDM630 Maximum total system power demand
+          scan_interval: 60
+          slave: 1
+          address: 86
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Total system VA demand
+          scan_interval: 60
+          slave: 1
+          address: 100
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Maximum total system VA demand
+          scan_interval: 60
+          slave: 1
+          address: 102
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: VA
+          # device_class: power
+          state_class: measurement
+
+        - name: SDM630 Neutral current demand
+          scan_interval: 60
+          slave: 1
+          address: 104
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Maximum neutral current demand
+          scan_interval: 60
+          slave: 1
+          address: 106
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Line 1 to line 2 volts
+          scan_interval: 60
+          slave: 1
+          address: 200
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Line 2 to line 3 volts
+          scan_interval: 60
+          slave: 1
+          address: 202
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Line 3 to line 1 volts
+          scan_interval: 60
+          slave: 1
+          address: 204
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Average line to line volts
+          scan_interval: 60
+          slave: 1
+          address: 206
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: V
+          device_class: voltage
+          state_class: measurement
+
+        - name: SDM630 Neutral current
+          scan_interval: 60
+          slave: 1
+          address: 224
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 1 L N volts THD
+          scan_interval: 60
+          slave: 1
+          address: 234
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 2 L N volts THD
+          scan_interval: 60
+          slave: 1
+          address: 236
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 3 L N volts THD
+          scan_interval: 60
+          slave: 1
+          address: 238
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 1 current THD
+          scan_interval: 60
+          slave: 1
+          address: 240
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 2 current THD
+          scan_interval: 60
+          slave: 1
+          address: 242
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 3 current THD
+          scan_interval: 60
+          slave: 1
+          address: 244
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Average line to neutral volts THD
+          scan_interval: 60
+          slave: 1
+          address: 248
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Average line current THD
+          scan_interval: 60
+          slave: 1
+          address: 250
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Phase 1 current demand
+          scan_interval: 60
+          slave: 1
+          address: 258
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 2 current demand
+          scan_interval: 60
+          slave: 1
+          address: 260
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Phase 3 current demand
+          scan_interval: 60
+          slave: 1
+          address: 262
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Maximum phase 1 current demand
+          scan_interval: 60
+          slave: 1
+          address: 264
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Maximum phase 2 current demand
+          scan_interval: 60
+          slave: 1
+          address: 266
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Maximum phase 3 current demand
+          scan_interval: 60
+          slave: 1
+          address: 268
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: A
+          device_class: current
+          state_class: measurement
+
+        - name: SDM630 Line 1 to line 2 volts THD
+          scan_interval: 60
+          slave: 1
+          address: 334
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Line 2 to line 3 volts THD
+          scan_interval: 60
+          slave: 1
+          address: 336
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Line 3 to line 1 volts THD
+          scan_interval: 60
+          slave: 1
+          address: 338
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Average line to line volts THD
+          scan_interval: 60
+          slave: 1
+          address: 340
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: '%'
+          device_class: power_factor
+          state_class: measurement
+
+        - name: SDM630 Total kVArh
+          scan_interval: 60
+          slave: 1
+          address: 344
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 import kWh
+          scan_interval: 60
+          slave: 1
+          address: 346
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 import kWh
+          scan_interval: 60
+          slave: 1
+          address: 348
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 import kWh
+          scan_interval: 60
+          slave: 1
+          address: 350
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 export kWh
+          scan_interval: 60
+          slave: 1
+          address: 352
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 export kWh
+          scan_interval: 60
+          slave: 1
+          address: 354
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 export kWh
+          scan_interval: 60
+          slave: 1
+          address: 356
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 total kWh
+          scan_interval: 60
+          slave: 1
+          address: 358
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 total kWh
+          scan_interval: 60
+          slave: 1
+          address: 360
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 total kWh
+          scan_interval: 60
+          slave: 1
+          address: 362
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kWh
+          device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 import kVArh
+          scan_interval: 60
+          slave: 1
+          address: 364
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 import kVArh
+          scan_interval: 60
+          slave: 1
+          address: 366
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 import kVArh
+          scan_interval: 60
+          slave: 1
+          address: 368
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 export kVArh
+          scan_interval: 60
+          slave: 1
+          address: 370
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 export kVArh
+          scan_interval: 60
+          slave: 1
+          address: 372
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 export kVArh
+          scan_interval: 60
+          slave: 1
+          address: 374
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L1 total kVArh
+          scan_interval: 60
+          slave: 1
+          address: 376
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L2 total kVArh 
+          scan_interval: 60
+          slave: 1
+          address: 378
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
+
+        - name: SDM630 L3 total kVArh 
+          scan_interval: 60
+          slave: 1
+          address: 380
+          input_type: input
+          count: 2
+          precision: 2
+          data_type: float32
+          unit_of_measurement: kVArh
+          # device_class: energy
+          state_class: total_increasing
