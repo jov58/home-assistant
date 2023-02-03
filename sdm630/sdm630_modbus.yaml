@@ -23,7 +23,7 @@
 modbus:
 
   - name: Waveshare Converter
-    type: tcp
+    type: tcp | rtuovertcp
     host: !secret modbus_ip1
     port: !secret modbus_port1
     delay: 1
@@ -211,7 +211,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Phase 2 volt amps
@@ -223,7 +223,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Phase 3 volt amps
@@ -235,7 +235,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Phase 1 reactive power
@@ -247,7 +247,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VAr
-          # device_class: power
+          device_class: reactive_power
           state_class: measurement
 
         - name: SDM630 Phase 2 reactive power
@@ -259,7 +259,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VAr
-          # device_class: power
+          device_class: reactive_power
           state_class: measurement
 
         - name: SDM630 Phase 3 reactive power
@@ -271,7 +271,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VAr
-          # device_class: power
+          device_class: reactive_power
           state_class: measurement
 
         - name: SDM630 Phase 1 power factor
@@ -391,7 +391,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Total system VAr
@@ -403,7 +403,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VAr
-          # device_class: power
+          device_class: reactive_power
           state_class: measurement
 
         - name: SDM630 Total system power factor
@@ -499,7 +499,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Total system VA demand
@@ -511,7 +511,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Maximum total system VA demand
@@ -523,7 +523,7 @@ modbus:
           precision: 2
           data_type: float32
           unit_of_measurement: VA
-          # device_class: power
+          device_class: apparent_power
           state_class: measurement
 
         - name: SDM630 Neutral current demand
