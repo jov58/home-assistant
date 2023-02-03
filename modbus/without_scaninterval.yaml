@@ -1,0 +1,1882 @@
+################################################################################3
+#
+# SDM630 kWh-meter sensors.
+#
+# No scan-interval for any sensor.
+#
+
+
+################################################################################
+# DEFINITIONS FOR SLAVE 1 = SOLAR PANELS
+
+    - name: SDM630 Total system power
+      slave: 1
+      address: 52
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM630 Total import kWh
+      slave: 1
+      address: 72
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Total export kWh
+      slave: 1
+      address: 74
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Total system power demand
+      slave: 1
+      address: 84
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM630 Total kWh
+      slave: 1
+      address: 342
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Phase 1 line to neutral volts
+      slave: 1
+      address: 0
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Phase 2 line to neutral volts
+      slave: 1
+      address: 2
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Phase 3 line to neutral volts
+      slave: 1
+      address: 4
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Phase 1 current
+      slave: 1
+      address: 6
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 2 current
+      slave: 1
+      address: 8
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 3 current
+      slave: 1
+      address: 10
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 1 power
+      slave: 1
+      address: 12
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 2 power
+      slave: 1
+      address: 14
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 3 power
+      slave: 1
+      address: 16
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 1 volt amps
+      slave: 1
+      address: 18
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 2 volt amps
+      slave: 1
+      address: 20
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 3 volt amps
+      slave: 1
+      address: 22
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 1 reactive power
+      slave: 1
+      address: 24
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 2 reactive power
+      slave: 1
+      address: 26
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 3 reactive power
+      slave: 1
+      address: 28
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Phase 1 power factor
+      slave: 1
+      address: 30
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Phase 2 power factor
+      slave: 1
+      address: 32
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Phase 3 power factor
+      slave: 1
+      address: 34
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Phase 1 phase angle
+      slave: 1
+      address: 36
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Phase 2 phase angle
+      slave: 1
+      address: 38
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Phase 3 phase angle
+      slave: 1
+      address: 40
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Average line to neutral volts
+      slave: 1
+      address: 42
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Average line current
+      slave: 1
+      address: 46
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Sum of line currents
+      slave: 1
+      address: 48
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Total system volt amps
+      slave: 1
+      address: 56
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Total system VAr
+      slave: 1
+      address: 60
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Total system power factor
+      slave: 1
+      address: 62
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Total system phase angle
+      slave: 1
+      address: 66
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Frequency of supply voltages
+      slave: 1
+      address: 70
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: Hz
+      # device_class: frequency
+      state_class: measurement
+
+    - name: SDM630 Total import kVArh
+      slave: 1
+      address: 76
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Total export kVArh
+      slave: 1
+      address: 78
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Total VAh
+      slave: 1
+      address: 80
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVAh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 Ah
+      slave: 1
+      address: 82
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: Ah
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM630 Maximum total system power demand
+      slave: 1
+      address: 86
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Total system VA demand
+      slave: 1
+      address: 100
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Maximum total system VA demand
+      slave: 1
+      address: 102
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM630 Neutral current demand
+      slave: 1
+      address: 104
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Maximum neutral current demand
+      slave: 1
+      address: 106
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Line 1 to line 2 volts
+      slave: 1
+      address: 200
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Line 2 to line 3 volts
+      slave: 1
+      address: 202
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Line 3 to line 1 volts
+      slave: 1
+      address: 204
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Average line to line volts
+      slave: 1
+      address: 206
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM630 Neutral current
+      slave: 1
+      address: 224
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 1 L N volts THD
+      slave: 1
+      address: 234
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 2 L N volts THD
+      slave: 1
+      address: 236
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 3 L N volts THD
+      slave: 1
+      address: 238
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 1 current THD
+      slave: 1
+      address: 240
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 2 current THD
+      slave: 1
+      address: 242
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 3 current THD
+      slave: 1
+      address: 244
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Average line to neutral volts THD
+      slave: 1
+      address: 248
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Average line current THD
+      slave: 1
+      address: 250
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Phase 1 current demand
+      slave: 1
+      address: 258
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 2 current demand
+      slave: 1
+      address: 260
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Phase 3 current demand
+      slave: 1
+      address: 262
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Maximum phase 1 current demand
+      slave: 1
+      address: 264
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Maximum phase 2 current demand
+      slave: 1
+      address: 266
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Maximum phase 3 current demand
+      slave: 1
+      address: 268
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM630 Line 1 to line 2 volts THD
+      slave: 1
+      address: 334
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Line 2 to line 3 volts THD
+      slave: 1
+      address: 336
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Line 3 to line 1 volts THD
+      slave: 1
+      address: 338
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Average line to line volts THD
+      slave: 1
+      address: 340
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM630 Total kVArh
+      slave: 1
+      address: 344
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 import kWh
+      slave: 1
+      address: 346
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 import kWh
+      slave: 1
+      address: 348
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 import kWh
+      slave: 1
+      address: 350
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 export kWh
+      slave: 1
+      address: 352
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 export kWh
+      slave: 1
+      address: 354
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 export kWh
+      slave: 1
+      address: 356
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 total kWh
+      slave: 1
+      address: 358
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 total kWh
+      slave: 1
+      address: 360
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 total kWh
+      slave: 1
+      address: 362
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 import kVArh
+      slave: 1
+      address: 364
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 import kVArh
+      slave: 1
+      address: 366
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 import kVArh
+      slave: 1
+      address: 368
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 export kVArh
+      slave: 1
+      address: 370
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 export kVArh
+      slave: 1
+      address: 372
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 export kVArh
+      slave: 1
+      address: 374
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L1 total kVArh
+      slave: 1
+      address: 376
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L2 total kVArh 
+      slave: 1
+      address: 378
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM630 L3 total kVArh 
+      slave: 1
+      address: 380
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+################################################################################
+# DEFINITIONS FOR SLAVE 2 = HEAT PUMP
+
+    - name: SDM631 Total system power
+      slave: 2
+      address: 52
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM631 Total import kWh
+      slave: 2
+      address: 72
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Total export kWh
+      slave: 2
+      address: 74
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Total system power demand
+      slave: 2
+      address: 84
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM631 Total kWh
+      slave: 2
+      address: 342
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Phase 1 line to neutral volts
+      slave: 2
+      address: 0
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Phase 2 line to neutral volts
+      slave: 2
+      address: 2
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Phase 3 line to neutral volts
+      slave: 2
+      address: 4
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Phase 1 current
+      slave: 2
+      address: 6
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 2 current
+      slave: 2
+      address: 8
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 3 current
+      slave: 2
+      address: 10
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 1 power
+      slave: 2
+      address: 12
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 2 power
+      slave: 2
+      address: 14
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 3 power
+      slave: 2
+      address: 16
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 1 volt amps
+      slave: 2
+      address: 18
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 2 volt amps
+      slave: 2
+      address: 20
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 3 volt amps
+      slave: 2
+      address: 22
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 1 reactive power
+      slave: 2
+      address: 24
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 2 reactive power
+      slave: 2
+      address: 26
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 3 reactive power
+      slave: 2
+      address: 28
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Phase 1 power factor
+      slave: 2
+      address: 30
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Phase 2 power factor
+      slave: 2
+      address: 32
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Phase 3 power factor
+      slave: 2
+      address: 34
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Phase 1 phase angle
+      slave: 2
+      address: 36
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Phase 2 phase angle
+      slave: 2
+      address: 38
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Phase 3 phase angle
+      slave: 2
+      address: 40
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Average line to neutral volts
+      slave: 2
+      address: 42
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Average line current
+      slave: 2
+      address: 46
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Sum of line currents
+      slave: 2
+      address: 48
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Total system volt amps
+      slave: 2
+      address: 56
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Total system VAr
+      slave: 2
+      address: 60
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VAr
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Total system power factor
+      slave: 2
+      address: 62
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      # unit_of_measurement: None
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Total system phase angle
+      slave: 2
+      address: 66
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: deg
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Frequency of supply voltages
+      slave: 2
+      address: 70
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: Hz
+      # device_class: frequency
+      state_class: measurement
+
+    - name: SDM631 Total import kVArh
+      slave: 2
+      address: 76
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Total export kVArh
+      slave: 2
+      address: 78
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Total VAh
+      slave: 2
+      address: 80
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVAh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 Ah
+      slave: 2
+      address: 82
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: Ah
+      # device_class: none
+      state_class: measurement
+
+    - name: SDM631 Maximum total system power demand
+      slave: 2
+      address: 86
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Total system VA demand
+      slave: 2
+      address: 100
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Maximum total system VA demand
+      slave: 2
+      address: 102
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: VA
+      # device_class: power
+      state_class: measurement
+
+    - name: SDM631 Neutral current demand
+      slave: 2
+      address: 104
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Maximum neutral current demand
+      slave: 2
+      address: 106
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Line 1 to line 2 volts
+      slave: 2
+      address: 200
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Line 2 to line 3 volts
+      slave: 2
+      address: 202
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Line 3 to line 1 volts
+      slave: 2
+      address: 204
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Average line to line volts
+      slave: 2
+      address: 206
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: V
+      device_class: voltage
+      state_class: measurement
+
+    - name: SDM631 Neutral current
+      slave: 2
+      address: 224
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 1 L N volts THD
+      slave: 2
+      address: 234
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 2 L N volts THD
+      slave: 2
+      address: 236
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 3 L N volts THD
+      slave: 2
+      address: 238
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 1 current THD
+      slave: 2
+      address: 240
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 2 current THD
+      slave: 2
+      address: 242
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 3 current THD
+      slave: 2
+      address: 244
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Average line to neutral volts THD
+      slave: 2
+      address: 248
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Average line current THD
+      slave: 2
+      address: 250
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Phase 1 current demand
+      slave: 2
+      address: 258
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 2 current demand
+      slave: 2
+      address: 260
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Phase 3 current demand
+      slave: 2
+      address: 262
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Maximum phase 1 current demand
+      slave: 2
+      address: 264
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Maximum phase 2 current demand
+      slave: 2
+      address: 266
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Maximum phase 3 current demand
+      slave: 2
+      address: 268
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: A
+      device_class: current
+      state_class: measurement
+
+    - name: SDM631 Line 1 to line 2 volts THD
+      slave: 2
+      address: 334
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Line 2 to line 3 volts THD
+      slave: 2
+      address: 336
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Line 3 to line 1 volts THD
+      slave: 2
+      address: 338
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Average line to line volts THD
+      slave: 2
+      address: 340
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: '%'
+      device_class: power_factor
+      state_class: measurement
+
+    - name: SDM631 Total kVArh
+      slave: 2
+      address: 344
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 import kWh
+      slave: 2
+      address: 346
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 import kWh
+      slave: 2
+      address: 348
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 import kWh
+      slave: 2
+      address: 350
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 export kWh
+      slave: 2
+      address: 352
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 export kWh
+      slave: 2
+      address: 354
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 export kWh
+      slave: 2
+      address: 356
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 total kWh
+      slave: 2
+      address: 358
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 total kWh
+      slave: 2
+      address: 360
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 total kWh
+      slave: 2
+      address: 362
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 import kVArh
+      slave: 2
+      address: 364
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 import kVArh
+      slave: 2
+      address: 366
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 import kVArh
+      slave: 2
+      address: 368
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 export kVArh
+      slave: 2
+      address: 370
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 export kVArh
+      slave: 2
+      address: 372
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 export kVArh
+      slave: 2
+      address: 374
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L1 total kVArh
+      slave: 2
+      address: 376
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L2 total kVArh 
+      slave: 2
+      address: 378
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
+
+    - name: SDM631 L3 total kVArh 
+      address: 380
+      input_type: input
+      count: 2
+      precision: 2
+      data_type: float32
+      unit_of_measurement: kVArh
+      # device_class: energy
+      state_class: total_increasing
