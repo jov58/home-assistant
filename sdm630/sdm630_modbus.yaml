@@ -23,7 +23,7 @@
 modbus:
 
   - name: Waveshare Converter
-    type: tcp | rtuovertcp
+    type: tcp
     host: !secret modbus_ip1
     port: !secret modbus_port1
     delay: 1
