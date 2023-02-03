@@ -1,0 +1,128 @@
+# Slave 1 only
+#
+# Slow reacting pi-hole devices is normal (they're on RPi Zero's)
+#
+# Don't know why I get these epoch warnings. The number of these messages varies between start-ups.
+
+s6-rc: info: service s6rc-oneshot-runner: starting
+s6-rc: info: service s6rc-oneshot-runner successfully started
+s6-rc: info: service fix-attrs: starting
+s6-rc: info: service fix-attrs successfully started
+s6-rc: info: service legacy-cont-init: starting
+s6-rc: info: service legacy-cont-init successfully started
+s6-rc: info: service legacy-services: starting
+services-up: info: copying legacy longrun home-assistant (no readiness notification)
+s6-rc: info: service legacy-services successfully started
+2023-01-31 11:19:16.626 DEBUG (SyncWorker_2) [pymodbus.client.sync] Connection to Modbus server established. Socket ('192.168.16.140', 48315)
+2023-01-31 11:19:16.626 INFO (SyncWorker_2) [homeassistant.components.modbus.modbus] modbus Waveshare Meterkast communication open
+2023-01-31 11:19:23.150 ERROR (MainThread) [hole] Can not load data from *hole: 192.168.16.102:80
+2023-01-31 11:19:23.156 ERROR (MainThread) [homeassistant.components.pi_hole] Error fetching Pi-Hole 2 data: Failed to communicate with API: Can not load data from *hole: 192.168.16.102:80
+2023-01-31 11:19:23.157 ERROR (MainThread) [hole] Can not load data from *hole: 192.168.16.101:80
+2023-01-31 11:19:23.159 ERROR (MainThread) [homeassistant.components.pi_hole] Error fetching Pi-Hole 1 data: Failed to communicate with API: Can not load data from *hole: 192.168.16.101:80
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+Jan 31 11:19:24 WARN Wrong epoch, expected 1, got: 0
+2023-01-31 11:19:27.672 WARNING (MainThread) [homeassistant.components.media_player] Setup of media_player platform samsungtv is taking over 10 seconds.
+2023-01-31 11:19:28.483 DEBUG (SyncWorker_4) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:28.578 WARNING (MainThread) [homeassistant.components.sensor] Entity sensor.watermeter_flow_rate (<class 'homeassistant.components.esphome.sensor.EsphomeSensor'>) is using native unit of measurement 'l/min' which is not a valid unit for the device c                                                                                                                                          lass ('water') it is using; Please update your configuration if your entity is manually configured, otherwise create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+esphome%22
+2023-01-31 11:19:28.785 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:29.039 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:29.475 DEBUG (SyncWorker_6) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:31.109 DEBUG (SyncWorker_29) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:31.354 DEBUG (SyncWorker_28) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:31.599 DEBUG (SyncWorker_12) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:31.842 DEBUG (SyncWorker_21) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:32.085 DEBUG (SyncWorker_20) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:32.329 DEBUG (SyncWorker_19) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:32.577 DEBUG (SyncWorker_15) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:32.825 DEBUG (SyncWorker_8) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:33.082 DEBUG (SyncWorker_11) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:33.328 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:33.575 DEBUG (SyncWorker_1) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:33.822 DEBUG (SyncWorker_5) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:34.071 DEBUG (SyncWorker_26) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:34.318 DEBUG (SyncWorker_23) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:34.565 DEBUG (SyncWorker_14) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:34.809 DEBUG (SyncWorker_24) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:35.063 DEBUG (SyncWorker_19) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:35.313 DEBUG (SyncWorker_15) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:35.560 DEBUG (SyncWorker_8) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:35.809 DEBUG (SyncWorker_11) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:36.055 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:36.304 DEBUG (SyncWorker_1) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:36.550 DEBUG (SyncWorker_5) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:36.797 DEBUG (SyncWorker_26) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:37.048 DEBUG (SyncWorker_7) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:37.478 DEBUG (SyncWorker_27) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:37.881 DEBUG (SyncWorker_14) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:38.288 DEBUG (SyncWorker_24) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:38.714 DEBUG (SyncWorker_16) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:39.053 DEBUG (SyncWorker_20) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:39.390 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:39.728 DEBUG (SyncWorker_13) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:40.067 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:40.404 DEBUG (SyncWorker_4) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:40.741 DEBUG (SyncWorker_22) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:40.989 DEBUG (SyncWorker_10) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:41.239 DEBUG (SyncWorker_6) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:41.489 DEBUG (SyncWorker_3) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:41.739 DEBUG (SyncWorker_29) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:41.988 DEBUG (SyncWorker_23) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:42.240 DEBUG (SyncWorker_12) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:42.490 DEBUG (SyncWorker_25) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:42.742 DEBUG (SyncWorker_21) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:42.993 DEBUG (SyncWorker_9) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:43.244 DEBUG (SyncWorker_19) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:43.486 DEBUG (SyncWorker_15) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:43.730 DEBUG (SyncWorker_8) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:43.975 DEBUG (SyncWorker_11) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:44.222 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:44.468 DEBUG (SyncWorker_1) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:44.717 DEBUG (SyncWorker_5) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:44.962 DEBUG (SyncWorker_26) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:45.207 DEBUG (SyncWorker_7) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:45.452 DEBUG (SyncWorker_28) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:45.720 DEBUG (SyncWorker_27) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:45.968 DEBUG (SyncWorker_14) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:46.219 DEBUG (SyncWorker_24) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:46.468 DEBUG (SyncWorker_16) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:46.717 DEBUG (SyncWorker_20) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:46.966 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:47.215 DEBUG (SyncWorker_13) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:47.464 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:47.714 DEBUG (SyncWorker_4) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:47.960 DEBUG (SyncWorker_22) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:48.214 DEBUG (SyncWorker_10) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:48.464 DEBUG (SyncWorker_6) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:48.710 DEBUG (SyncWorker_0) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:48.957 DEBUG (SyncWorker_3) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:49.202 DEBUG (SyncWorker_29) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:49.448 DEBUG (SyncWorker_23) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:49.694 DEBUG (SyncWorker_12) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:49.938 DEBUG (SyncWorker_25) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:50.189 DEBUG (SyncWorker_21) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:50.441 DEBUG (SyncWorker_9) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:50.692 DEBUG (SyncWorker_19) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:50.947 DEBUG (SyncWorker_15) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:51.200 DEBUG (SyncWorker_8) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:51.448 DEBUG (SyncWorker_11) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:51.695 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:51.940 DEBUG (SyncWorker_1) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:52.188 DEBUG (SyncWorker_5) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:52.435 DEBUG (SyncWorker_26) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:52.682 DEBUG (SyncWorker_7) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:52.931 DEBUG (SyncWorker_28) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:53.181 DEBUG (SyncWorker_27) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:53.429 DEBUG (SyncWorker_14) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:53.682 DEBUG (SyncWorker_24) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:53.931 DEBUG (SyncWorker_16) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:54.184 DEBUG (SyncWorker_20) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:54.433 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:54.687 DEBUG (SyncWorker_13) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:19:54.936 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:20:00.591 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+
+Desktop message 'Home Assistant has started' appears.

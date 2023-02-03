@@ -1,0 +1,53 @@
+# Slave 1 and 2 together
+
+s6-rc: info: service s6rc-oneshot-runner: starting
+s6-rc: info: service s6rc-oneshot-runner successfully started
+s6-rc: info: service fix-attrs: starting
+s6-rc: info: service fix-attrs successfully started
+s6-rc: info: service legacy-cont-init: starting
+s6-rc: info: service legacy-cont-init successfully started
+s6-rc: info: service legacy-services: starting
+services-up: info: copying legacy longrun home-assistant (no readiness notification)
+s6-rc: info: service legacy-services successfully started
+2023-01-31 11:28:16.320 DEBUG (SyncWorker_6) [pymodbus.client.sync] Connection to Modbus server established. Socket ('192.168.16.140', 54857)
+2023-01-31 11:28:16.321 INFO (SyncWorker_6) [homeassistant.components.modbus.modbus] modbus Waveshare Meterkast communication open
+2023-01-31 11:28:28.648 DEBUG (SyncWorker_21) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:28:28.969 DEBUG (SyncWorker_15) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:28:29.157 WARNING (MainThread) [homeassistant.components.sensor] Entity sensor.watermeter_flow_rate (<class 'homeassistant.components.esphome.sensor.EsphomeSensor'>) is using native unit of measurement 'l/min' which is not a valid unit for the device class ('water') it is using; Please update your configuration if your entity is manually configured, otherwise create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+esphome%22
+2023-01-31 11:28:29.299 DEBUG (SyncWorker_25) [pymodbus.client.sync] New Transaction state 'SENDING'
+
+Only 7 minutes of 'New transaction state SENDING' messages now while desktop shows 'Wrapping up ...' message. During this time, I can already see 
+
+2023-01-31 11:33:34.935 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:33:35.036 WARNING (MainThread) [homeassistant.bootstrap] Setup timed out for bootstrap - moving forward
+2023-01-31 11:33:35.188 DEBUG (SyncWorker_7) [pymodbus.client.sync] New Transaction state 'SENDING'
+
+Desktop message 'Home Assistant has started' appears.
+
+2023-01-31 11:33:49.976 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+
+2023-01-31 11:33:50.044 WARNING (MainThread) [homeassistant.core] Something is blocking Home Assistant from wrapping up the start up phase. 
+We're going to continue anyway. Please report the following info at https://github.com/home-assistant/core/issues: media_source, homeassistant,
+person, light, binary_sensor, sensor.hue, persistent_notification, sensor.moon, sensor.pi_hole, tag, device_tracker.mqtt, siren.mqtt, cloud,
+deconz, fan, binary_sensor.ping, diagnostics, lock.mqtt, fan.mqtt, binary_sensor.devolo_home_network, buienradar, input_number, system_log, api,
+sensor.tradfri, sensor.template, sensor, lock, binary_sensor.hue, moon, binary_sensor.mobile_app, select.mqtt, notify, lovelace, mqtt, switch.deconz,
+sensor.modbus, recorder, light.fritzbox, sensor.deconz, webhook, dhcp, esphome, upnp, switch.esphome, binary_sensor.esphome, hardware, number.esphome,
+onboarding, ssdp, bluetooth, climate.deconz, camera.ffmpeg, light.switch_as_x, discovery, tts.google_translate, input_boolean, zone, cover.deconz,
+button.mqtt, switch.mqtt, binary_sensor.shelly, timer, switch.fritzbox, sensor.fritzbox, forecast_solar, light.hue, input_datetime, backup,
+input_select, websocket_api, repairs, climate.mqtt, zeroconf, sql, sensor.shelly, frontend, text, tts, media_player, shelly, light.shelly, co2signal,
+sensor.command_line, update.pi_hole, blueprint, text.mqtt, lock.deconz, binary_sensor.fritzbox, sensor.mobile_app, button.fritzbox, group,
+humidifier.mqtt, sensor.systemmonitor, light.deconz, fan.deconz, network, alarm_control_panel.mqtt, light.group, calendar.google, cover, tradfri,
+logger, switch_as_x, hue, alarm_control_panel, scene.homeassistant, cover.shelly, schedule, map, samsungtv, script, climate.fritzbox, config,
+application_credentials, automation, sensor.esphome, select, sensor.history_stats, siren.deconz, analytics, light.tradfri, weather.buienradar,
+cover.tradfri, homeassistant_alerts, button.esphome, sensor.mqtt, sensor.energy, sensor.forecast_solar, pi_hole, auth, binary_sensor.pi_hole, usb,
+file_upload, modbus, media_player.samsungtv, trace, search, wake_on_lan, sensor.buienradar, system_health, alarm_control_panel.deconz, my,
+button.deconz, sensor.ipp, device_tracker, sensor.time_date, sensor.version, ping, template, update, google, number.deconz, number, notify.mobile_app,
+sensor.derivative, switch, cover.mqtt, history, camera.buienradar, update.shelly, scene.hue, scene.deconz, update.mqtt, binary_sensor.version, stream,
+camera, device_automation, device_tracker.devolo_home_network, image_upload, switch.tradfri, light.mqtt, humidifier, scene, input_text,
+binary_sensor.mqtt, sensor.upnp, vacuum, switch.shelly, switch.hue, switch.pi_hole, select.deconz, http, button.shelly, climate, binary_sensor.deconz,
+camera.mqtt, mobile_app, button, input_button, weather, sun, energy, number.mqtt, device_tracker.mobile_app, default_config, binary_sensor.upnp,
+scene.mqtt, fan.tradfri, logbook, ffmpeg, fritzbox, sensor.devolo_home_network, counter, ipp, sensor.sql, devolo_home_network,
+climate.generic_thermostat, siren, version, cover.fritzbox, vacuum.mqtt, sensor.co2signal, calendar
+
+2023-01-31 11:33:50.641 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+... etc.

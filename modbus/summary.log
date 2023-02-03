@@ -1,0 +1,38 @@
+# Slave 1 only ##################################################
+Complete log: https://github.com/jov58/esphome/blob/main/modbus/slave1-only.log
+
+2023-01-31 11:19:16.626 DEBUG (SyncWorker_2) [pymodbus.client.sync] Connection to Modbus server established. Socket ('192.168.16.140', 48315)
+2023-01-31 11:19:16.626 INFO (SyncWorker_2) [homeassistant.components.modbus.modbus] modbus Waveshare Meterkast communication open
+2023-01-31 11:19:28.483 DEBUG (SyncWorker_4) [pymodbus.client.sync] New Transaction state 'SENDING'
+... more of these messages
+2023-01-31 11:20:00.591 DEBUG (SyncWorker_18) [pymodbus.client.sync] New Transaction state 'SENDING'
+... Desktop: 'Home Assistant has started'
+... All entities of slave 1 responding
+
+# Slave 2 only ##################################################
+Complete log: https://github.com/jov58/esphome/blob/main/modbus/slave2-only.log
+
+2023-01-31 11:25:14.365 DEBUG (SyncWorker_0) [pymodbus.client.sync] Connection to Modbus server established. Socket ('192.168.16.140', 58899)
+2023-01-31 11:25:14.365 INFO (SyncWorker_0) [homeassistant.components.modbus.modbus] modbus Waveshare Meterkast communication open
+2023-01-31 11:25:20.183 DEBUG (SyncWorker_22) [pymodbus.client.sync] New Transaction state 'SENDING'
+... more of these messages
+2023-01-31 11:25:35.199 DEBUG (SyncWorker_1) [pymodbus.client.sync] New Transaction state 'SENDING'
+... Desktop: 'Home Assistant has started'
+... All entities of slave 2 responding
+
+# Slave 1 and 2 together #########################################
+Complete log: https://github.com/jov58/esphome/blob/main/modbus/slave1-slave2.log
+
+2023-01-31 11:28:16.320 DEBUG (SyncWorker_6) [pymodbus.client.sync] Connection to Modbus server established. Socket ('192.168.16.140', 54857)
+2023-01-31 11:28:16.321 INFO (SyncWorker_6) [homeassistant.components.modbus.modbus] modbus Waveshare Meterkast communication open
+2023-01-31 11:28:28.648 DEBUG (SyncWorker_21) [pymodbus.client.sync] New Transaction state 'SENDING'
+... more of these messages (sometimes for 15 minutes, this time for 5 minutes) while desktop says 'Wrapping up ...'
+... During this stage, I can already see entities of both slaves responding on the desktop.
+2023-01-31 11:33:34.935 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:33:35.036 WARNING (MainThread) [homeassistant.bootstrap] Setup timed out for bootstrap - moving forward
+2023-01-31 11:33:35.188 DEBUG (SyncWorker_7) [pymodbus.client.sync] New Transaction state 'SENDING'
+... Desktop: 'Home Assistant has started'
+2023-01-31 11:33:49.976 DEBUG (SyncWorker_17) [pymodbus.client.sync] New Transaction state 'SENDING'
+2023-01-31 11:33:50.044 WARNING (MainThread) [homeassistant.core] Something is blocking Home Assistant from wrapping up the start up phase. We're going to continue anyway. Please report the following info at https://github.com/home-assistant/core/issues: [long list]]
+2023-01-31 11:33:50.641 DEBUG (SyncWorker_2) [pymodbus.client.sync] New Transaction state 'SENDING'
+... etc
