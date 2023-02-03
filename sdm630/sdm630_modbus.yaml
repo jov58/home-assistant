@@ -246,7 +246,7 @@ modbus:
           count: 2
           precision: 2
           data_type: float32
-          unit_of_measurement: VAr
+          unit_of_measurement: var
           device_class: reactive_power
           state_class: measurement
 
@@ -258,7 +258,7 @@ modbus:
           count: 2
           precision: 2
           data_type: float32
-          unit_of_measurement: VAr
+          unit_of_measurement: var
           device_class: reactive_power
           state_class: measurement
 
@@ -270,7 +270,7 @@ modbus:
           count: 2
           precision: 2
           data_type: float32
-          unit_of_measurement: VAr
+          unit_of_measurement: var
           device_class: reactive_power
           state_class: measurement
 
@@ -402,7 +402,7 @@ modbus:
           count: 2
           precision: 2
           data_type: float32
-          unit_of_measurement: VAr
+          unit_of_measurement: var
           device_class: reactive_power
           state_class: measurement
 
